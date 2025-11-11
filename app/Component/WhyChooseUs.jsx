@@ -7,10 +7,10 @@ export default function WhyChooseUs() {
       <div className="container mx-auto px-4 grid gap-12 lg:grid-cols-2 items-center">
         {/* Left Content */}
         <div>
-          <span className="text-blue-600 font-medium block mb-2 sm:mb-3 text-sm sm:text-base">
+          <span className="text-blue-600 text-center sm:text-left font-medium block mb-2 sm:mb-3 text-sm sm:text-base">
             Why choose us
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 leading-snug text-gray-900">
+          <h2 className="text-2xl sm:text-3xl text-center sm:text-left md:text-4xl font-bold mb-6 sm:mb-8 leading-snug text-gray-900">
             With over 25 years experience, our technicians are highly experienced in
             repairing Home Appliances
           </h2>

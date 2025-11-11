@@ -4,10 +4,10 @@ export default function CoreValuesSection() {
       <div className="mx-auto px-6 md:px-20 max-w-6xl">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 ">
+          <h2 className="text-3xl md:text-3xl text-primary font-heading font-bold mb-4 ">
             Our Core Values
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto">
             These values reflect who we are and guide the way we serve our customers every day.
           </p>
         </div>
@@ -32,7 +32,7 @@ export default function CoreValuesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold    mb-3">
+            <h3 className="text-lg font-semibold    mb-3">
               Integrity
             </h3>
             <p className="text-slate-600">
@@ -57,7 +57,7 @@ export default function CoreValuesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold    mb-3">
+            <h3 className="text-lg font-semibold    mb-3">
               Excellence
             </h3>
             <p className="text-slate-600">
@@ -82,7 +82,7 @@ export default function CoreValuesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold    mb-3">
+            <h3 className="text-lg font-semibold    mb-3">
               Customer First
             </h3>
             <p className="text-slate-600">

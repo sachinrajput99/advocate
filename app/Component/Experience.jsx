@@ -25,10 +25,10 @@ export default function Experience() {
 
         {/* Text */}
         <div>
-          <div className="text-sm text-blue-600 font-semibold uppercase tracking-wide mb-4">
+          <div className="text-sm text-blue-600 text-center sm:text-left font-semibold uppercase tracking-wide mb-4">
             20 Years Experience
           </div>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-slate-900">
+          <h2 className="text-2xl text-center md:text-3xl sm:text-left font-semibold mb-6 text-slate-900">
             Home Appliance Repair Services
           </h2>
           <p className="text-md text-slate-500 mb-8 leading-relaxed">
@@ -47,13 +47,13 @@ export default function Experience() {
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
-              className="bg-blue-600  text-white font-semibold px-6 py-3 rounded hover:bg-blue-700 transition"
+              className="bg-blue-600  text-center text-white font-semibold px-6 py-3 rounded hover:bg-blue-700 transition"
             >
               Call Now
             </a>
             <a
               href="#properties"
-              className="border border-slate-300 px-6 py-3 font-semibold text-slate-700 rounded hover:bg-slate-50 transition"
+              className="border border-slate-300 text-center px-6 py-3 font-semibold text-slate-700 rounded hover:bg-slate-50 transition"
             >
               View All Properties
             </a>

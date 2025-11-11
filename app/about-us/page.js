@@ -12,7 +12,7 @@ const page = () => {
     <>
       <Navbar />
 
-      <section className="relative bg-[#063957]  py-24 md:py-28">
+      <section className="relative bg-[#063957] mt-28   py-12">
         {/* Background image if needed */}
         {/* <Image 
         src={bgImage} 
@@ -23,10 +23,10 @@ const page = () => {
       /> */}
 
         <div className="relative z-10 mx-auto px-6 md:px-20 max-w-4xl text-center">
-        <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+        <h1 className="text-2xl md:text-4xl font-heading font-bold text-white mb-6">
   About ATF Service Center
 </h1>
-<p className="text-xl text-white/90 max-w-2xl mx-auto">
+<p className="text-lg text-white/90 max-w-2xl mx-auto">
   Trusted Home Appliance Repair & Customer Support Service Provider with 25+ Years of Experience.
 </p>
         </div>

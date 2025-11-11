@@ -18,7 +18,7 @@ export default function HeroSection() {
             className="
               font-semibold 
               leading-tight 
-              text-[26px] 
+              text-[39px] 
               sm:text-[40px] 
               md:text-[52px] 
               lg:text-[60px]
@@ -43,7 +43,7 @@ export default function HeroSection() {
             className="
               text-white/90 
               mt-3 sm:mt-5 
-              text-[13px] 
+              text-[14px] 
               sm:text-[16px] 
               md:text-[18px] 
               leading-[22px] sm:leading-[28px] 
@@ -55,7 +55,7 @@ export default function HeroSection() {
           </p>
 
           {/* Button */}
-          <div className="mt-6 sm:mt-8">
+          <div className="mt-8 sm:mt-8">
             <a
               href="tel:18001030575"
               className="
@@ -63,7 +63,7 @@ export default function HeroSection() {
                 bg-[#ca232a] 
                 text-white 
                 font-semibold 
-                text-[11px] 
+                text-[18px] 
                 sm:text-[14px] 
                 px-5 sm:px-7 
                 py-2 sm:py-3 

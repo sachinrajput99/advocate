@@ -11,7 +11,8 @@ export default function OurStorySection() {
             </h2>
 
             <p className="text-lg text-slate-600 leading-relaxed mb-6">
-              <span className="text-red-700 font-semibold">ATF</span> Servicecenter India was established with a commitment 
+              {/* <span className="text-red-700 font-semibold">ATF</span>  */}
+              ATF Servicecenter India was established with a commitment 
               to provide professional, reliable, and fast customer support and appliance repair services. 
               Our goal has always been to make service requests simple, transparent, and stress-free for every customer.
             </p>

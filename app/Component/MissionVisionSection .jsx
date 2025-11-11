@@ -4,7 +4,7 @@ export default function MissionVisionSection() {
       <div className="mx-auto px-6 md:px-20 max-w-6xl">
         
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-primary">
+          <h2 className="text-3xl md:text-3xl font-heading font-bold mb-4 text-primary">
             Our Mission & Vision
           </h2>
         </div>
@@ -13,7 +13,7 @@ export default function MissionVisionSection() {
 
           {/* Mission */}
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-            <h3 className="text-2xl font-heading font-semibold text-primary mb-4">
+            <h3 className="text-xl font-heading font-semibold text-primary mb-4">
               Our Mission
             </h3>
             <p className="text-slate-600 leading-relaxed">
@@ -26,7 +26,7 @@ export default function MissionVisionSection() {
 
           {/* Vision */}
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-            <h3 className="text-2xl font-heading font-semibold text-primary mb-4">
+            <h3 className="text-xl font-heading font-semibold text-primary mb-4">
               Our Vision
             </h3>
             <p className="text-slate-600 leading-relaxed">
