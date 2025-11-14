@@ -1,3 +1,7 @@
+import { motion } from "framer-motion";
+import { FaPlus } from "react-icons/fa";
+
+
 const AccordionItem = ({ question, answer }) => {
   const [open, setOpen] = React.useState(false);
 
