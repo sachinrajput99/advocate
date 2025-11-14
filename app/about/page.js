@@ -285,7 +285,7 @@ const Page = () => {
         Services
       </motion.h2>
       <motion.p variants={fadeUp} className="text-gray-600 mt-2">
-        We prioritize our clients' needs, understanding that each case is unique.
+        We prioritize our clients&apos; needs, understanding that each case is unique.
       </motion.p>
     </div>
 
