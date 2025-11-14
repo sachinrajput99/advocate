@@ -1,6 +1,6 @@
 "use client";
 
-import Pricing from "../Component/pricing"
+import Pricing from "../Component/Pricing"
 import RightsMatterSection from "../Component/RightsMatterSection"
 import Navbar from "../Component/Navbar"
 import Footer from "../Component/Footer"

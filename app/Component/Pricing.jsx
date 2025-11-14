@@ -86,8 +86,6 @@ export default function Pricing() {
                 ))}
               </ul>
             </div>
-
-          
           </motion.div>
         ))}
       </div>
