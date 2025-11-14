@@ -15,7 +15,7 @@ export default function TrustSection() {
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
         <img
-          src="/divya-trust.jpg"
+          src="/divya-trust.jpeg"
           alt="Lawyers discussing"
           className="w-full h-full object-cover
          

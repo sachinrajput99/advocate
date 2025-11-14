@@ -36,7 +36,7 @@ export default function SplashScreen({ onFinish }) {
       <motion.div
         className="absolute inset-0 bg-cover bg-right sm:bg-center        bg-[length:auto_100%]   /* height full, width auto */
     bg-[position:calc(100%_-_-130px)_center] /* start 400px from right */"
-        style={{ backgroundImage: "url('/divya-trust3.jpeg')" }}
+        style={{ backgroundImage: "url('/divya-trust.jpeg')" }}
         initial={{ opacity: 0, scale: 1.2 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
