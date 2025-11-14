@@ -47,7 +47,7 @@ export default function AttorneysSection() {
           </h2>
 
           <p className="text-gray-600 mt-6 leading-relaxed">
-            We prioritize our clients' needs, understanding that each case is
+            We prioritize our clients&apos; needs, understanding that each case is
             unique. Our team of seasoned attorneys is committed to delivering
             tailored solutions.
           </p>
@@ -55,8 +55,8 @@ export default function AttorneysSection() {
           {/* Quote */}
           <div className="border-l-4 pl-6 mt-10 border-[#213753]">
             <h6 className="text-lg font-medium text-[#213753]">
-              "Our attorneys are accessible, responsive, and will keep you
-              updated on the progress of your case"
+              &quot;Our attorneys are accessible, responsive, and will keep you
+              updated on the progress of your case&quot;
             </h6>
             <p className="text-gray-600 mt-3">
               Divya Saini, The Founder 
