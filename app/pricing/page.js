@@ -20,7 +20,7 @@ export default function Page() {
             </h2>
 
             <p className="text-gray-600 mt-6 leading-relaxed">
-              We prioritize our clients' needs, understanding that each case is unique.
+              We prioritize our clients&apos; needs, understanding that each case is unique.
               Our team of experienced attorneys delivers tailored legal solutions,
               ensuring you receive the attention and representation you deserve.
             </p>
