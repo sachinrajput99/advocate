@@ -1,82 +1,52 @@
 "use client";
-
 import React from "react";
 
 export default function HeroSection() {
   return (
     <section
-      className="relative mt-[60px] bg-[url('/hero.jpg')]  bg-cover  bg-center md:bg-top min-h-[90vh] flex flex-col text-white"
+      className="relative min-h-screen flex flex-col justify-center text-white bg-[url('/lawyer-bg.avif')] bg-cover bg-center"
     >
-      {/* 🔹 Dark Overlay for better contrast */}
+      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/50"></div>
 
-      {/* 🔹 Hero Content */}
-      <div className="relative z-10 flex flex-col justify-center flex-1 px-4 sm:px-6 md:px-12 lg:px-20">
-        <div className="max-w-2xl">
-          {/* Heading */}
-          <h1
-            className="
-              font-semibold 
-              leading-tight 
-              text-[39px] 
-              sm:text-[40px] 
-              md:text-[52px] 
-              lg:text-[60px]
-            "
-          >
-            Quick{" "}
-            <span
-              className="
-                font-light 
-                 sm:inline 
-                text-[20px] 
-                sm:text-[28px] 
-                md:text-[32px]
-              "
-            >
-              Best Services
-            </span>
-          </h1>
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-6 md:px-16 max-w-6xl">
+        <h1 className="text-3xl md:text-6xl  leading-tight mb-6">
+          We tailor our approach to meet individual needs
+        </h1>
 
-          {/* Paragraph */}
-          <p
-            className="
-              text-white/90 
-              mt-3 sm:mt-5 
-              text-[14px] 
-              sm:text-[16px] 
-              md:text-[18px] 
-              leading-[22px] sm:leading-[28px] 
-              max-w-md
-            "
-          >
-            We provide the best service and repair for all brands of home
-            appliances at your home.
-          </p>
+        <p className="text-lg md:text-lg text-gray-200 max-w-2xl mb-8">
+          Our team of seasoned attorneys is committed to delivering tailored solutions, ensuring you receive the attention and representation you deserve. Our comprehensive expertise allows us to handle a wide range of legal matters effectively.
+        </p>
 
-          {/* Button */}
-          <div className="mt-8 sm:mt-8">
-            <a
-              href="tel:18001030575"
-              className="
-                inline-block 
-                bg-[#ca232a] 
-                text-white 
-                font-semibold 
-                text-[18px] 
-                sm:text-[14px] 
-                px-5 sm:px-7 
-                py-2 sm:py-3 
-                rounded-md 
-                border border-transparent
-                hover:bg-transparent 
-                hover:border-[#ca232a] 
-                transition-all 
-                duration-300
-              "
-            >
-              📞 1800 103 0575
-            </a>
+        <div className="flex flex-wrap gap-4">
+          <button className="bg-[#ddebf9] text-[#213753] ` px-6 py-3 rounded-full hover:bg-[#c7dff5] transition">
+            Book Consultation
+          </button>
+          <button className="border border-[#ddebf9] text-[#ddebf9]  px-6 py-3 rounded-full hover:bg-[#ddebf9]/10 transition">
+            Explore More
+          </button>
+        </div>
+      </div>
+
+      {/* Bottom Stats Bar */}
+      <div className="absolute bottom-0 w-full bg-[#213753]/90 py-8">
+        <div className="container mx-auto px-6 md:px-16 flex flex-wrap justify-between text-center text-white">
+          <div className="flex-1 min-w-[150px] mb-4 md:mb-0">
+            <h3 className="text-3xl font-bold">15+</h3>
+            <p className="text-gray-300">Years of experience</p>
+          </div>
+          <div className="flex-1 min-w-[150px] mb-4 md:mb-0">
+            <h3 className="text-3xl font-bold">84k</h3>
+            <p className="text-gray-300">Clients worldwide</p>
+          </div>
+          <div className="flex-1 min-w-[150px] mb-4 md:mb-0">
+            <h3 className="text-3xl font-bold">28</h3>
+            <p className="text-gray-300">Awards & honors</p>
+          </div>
+          <div className="flex-1 min-w-[150px]">
+            <h3 className="text-3xl font-bold">15+</h3>
+            <p className="text-gray-300">Years of experience</p>
           </div>
         </div>
       </div>

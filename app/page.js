@@ -1,17 +1,18 @@
 import HeroSection from "./Component/Hero";
 
-import EmergencyCallSection from "./Component/EmergencyCallSection";
+import SpecialisationsSection from "./Component/SpecialisationsSection";
 
-import TrustedPartner from "./Component/TrustedPartner";
+import RightsMatterSection from "./Component/RightsMatterSection";
 
 import WorkExperience from "./Component/WorkExperience";
-import Experience from "./Component/Experience"
+import TrustSection from "./Component/TrustSection"
 import Services from "./Component/Services"
 import WhyChooseUs from "./Component/WhyChooseUs";
 // import RequestQuote from "./Component/RequestQuote";
 
 import FAQSection from "./Component/FAQSection";
 import ContactSection from "./Component/ContactSection";
+import AboutUsSection from "./Component/AboutUsSection";
 import Footer from "./Component/Footer";
 import Navbar from "./Component/Navbar";
 import WhatsappButton from "./Component/WhatsappButton";
@@ -25,17 +26,19 @@ export default function Home() {
       </Head>
       <Navbar />
       <HeroSection />
-<EmergencyCallSection/>
-<TrustedPartner/>
-      <Experience />
+
+<RightsMatterSection/>
+<AboutUsSection/>
+      <TrustSection />
+<SpecialisationsSection/>
      
    
-      <Services />
-<WorkExperience/>
-   
-      <WhyChooseUs/>
-    
       <ContactSection />
+{/* <WorkExperience/> */}
+   
+      {/* <WhyChooseUs/> */}
+    
+      {/* <ContactSection1 /> */}
       <Footer />
       <WhatsappButton />
     </>

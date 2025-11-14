@@ -1,139 +1,104 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
+import { Scale } from "lucide-react"; // ⚖️ Icon (optional)
 
-const Navbar = () => {
+export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <>
-      {/* Navbar Container */}
-      <header className="w-full bg-white z-50 fixed top-0 left-0 shadow-sm">
-        <div className="mx-auto px-6 md:px-20 py-6 flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <h1 className="text-xl md:text-3xl font-serif">
-              <span className="text-red-600 font-normal">ATF</span>
-              <span className="text-black font-light ml-0.5"> servicecenter</span>
-            </h1>
-          </Link>
+    <header className="w-full bg-[#F9FAFC] py-5 fixed top-0 left-0 z-50 shadow-sm">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2">
+          <Scale className="w-6 h-6 text-[#324563]" />
+          <h1 className="font-serif text-lg text-[#131820]">Peter Clark</h1>
+        </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-12 text-sm font-medium text-black flex-1 justify-end mx-8">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-10 text-[#131820] text-[15px] font-normal">
+          {[  { name: "Home", href: "/" },
+            { name: "Specialisation", href: "/specialisation" },
+            { name: "About", href: "/about" },
+            { name: "Blog", href: "/blog" },
+            { name: "Contact", href: "/contact" },
+            
+          ].map((link) => (
             <Link
-              href="/"
-              className="uppercase tracking-wide hover:text-black/70 transition-colors"
+              key={link.name}
+              href={link.href}
+              className="relative group transition-colors duration-300"
             >
-              Home
+              {link.name}
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#324563] rounded group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link
-              href="/about-us"
-              className="uppercase tracking-wide hover:text-black/70 transition-colors"
-            >
-              About
-            </Link>
-            <a
-              href="/#services"
-              className="uppercase tracking-wide hover:text-black/70 transition-colors"
-            >
-              Services
-            </a>
-            <Link
-              href="/contact"
-              className="uppercase tracking-wide hover:text-black/70 transition-colors"
-            >
-              Contact
-            </Link>
-          </nav>
+          ))}
+        </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(true)}
-            className="md:hidden p-2 rounded-lg hover:bg-black/10 transition-colors"
-            aria-label="Toggle mobile menu"
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(true)}
+          className="md:hidden p-2"
+          aria-label="Open Menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-6 h-6 text-[#131820]"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6 text-black"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"
-              />
-            </svg>
-          </button>
-        </div>
-      </header>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+          </svg>
+        </button>
+      </div>
 
-      {/* Mobile Overlay */}
+      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40"
+          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
           onClick={() => setIsMobileMenuOpen(false)}
-        />
+        ></div>
       )}
 
-      {/* Mobile Slide-In Menu */}
+      {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-full bg-[#08314B] z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-3/4 bg-[#F9FAFC] shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Header */}
-        <div className="flex justify-between items-center p-6 border-b border-white/20">
-          <h1 className="text-xl font-serif">
-            <span className="text-red-600 font-normal">ATF</span>
-            <span className="text-white font-light ml-0.5"> servicecenter</span>
-          </h1>
+        <div className="flex justify-between items-center p-6 border-b border-gray-200">
+          <h1 className="font-serif text-lg text-[#131820]">Peter Clark</h1>
           <button
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-white text-3xl"
-            aria-label="Close menu"
+            className="text-3xl text-[#131820]"
           >
             &times;
           </button>
         </div>
 
-        {/* Mobile Nav Links (same as desktop) */}
-        <nav className="flex flex-col gap-6 mt-6 text-white px-6 text-lg">
-          <Link
-            href="/"
-            className="border-b border-white/20 pb-2 hover:text-white/90 transition-colors"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Home
-          </Link>
-          <Link
-            href="/about-us"
-            className="border-b border-white/20 pb-2 hover:text-white/90 transition-colors"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            About
-          </Link>
-          <a
-            href="/#services"
-            className="border-b border-white/20 pb-2 hover:text-white/90 transition-colors"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Services
-          </a>
-          <Link
-            href="/contact"
-            className="border-b border-white/20 pb-2 hover:text-white/90 transition-colors"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Contact
-          </Link>
+        <nav className="flex flex-col p-6 text-[#131820] gap-6 text-base">
+          {[
+            "Specialisation",
+            "About",
+            "Blog",
+            "Contact",
+            "Get the template",
+          ].map((item) => (
+            <Link
+              key={item}
+              href={`/${item.toLowerCase().replace(" ", "-")}`}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="relative group"
+            >
+              {item}
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#324563] rounded group-hover:w-full transition-all duration-300"></span>
+            </Link>
+          ))}
         </nav>
       </div>
-    </>
+    </header>
   );
-};
-
-export default Navbar;
+}
