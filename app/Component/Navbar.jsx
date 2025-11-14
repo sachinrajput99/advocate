@@ -19,7 +19,7 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-10 text-[#131820] text-[15px] font-normal">
           {[  { name: "Home", href: "/" },
-            { name: "Specialisation", href: "/specialisation" },
+            { name: "Specialisation", href: "ourservices" },
             { name: "About", href: "/about" },
             { name: "Blog", href: "/blog" },
             { name: "Contact", href: "/contact" },

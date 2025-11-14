@@ -1,70 +1,36 @@
 "use client";
 
 import { useState } from "react";
+import { FaPlus } from "react-icons/fa";
 
 export default function FAQItem({ question, answer }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div
-      className={`bg-white rounded-2xl border-2 transition-all duration-300 overflow-hidden shadow-sm ${
-        isOpen ? "border-accent shadow-lg" : "border-slate-200 hover:shadow-md"
-      }`}
-    >
-      {/* Button */}
-      <button
-        className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-50/50 transition-colors"
+    <div className="border-b border-[#213753]/40 pb-3 transition-all cursor-pointer hover:opacity-80">
+      {/* Header */}
+      <div
+        className="flex items-center justify-between"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <h4 className="font-semibold text-lg md:text-xl text-primary pr-4">
-          {question}
-        </h4>
-        <div className="flex-shrink-0">
-          {isOpen ? (
-            <svg
-              className="w-6 h-6 text-accent"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            </svg>
-          ) : (
-            <svg
-              className="w-6 h-6 text-slate-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-              ></path>
-            </svg>
-          )}
-        </div>
-      </button>
+        <h4 className="text-2xl font-medium text-[#213753]">{question}</h4>
 
-      {/* Answer */}
+        <span
+          className={`transition-transform duration-300 ${
+            isOpen ? "rotate-45" : ""
+          }`}
+        >
+          <FaPlus className="text-[#213753] text-[16px]" />
+        </span>
+      </div>
+
+      {/* Body */}
       <div
-        className={`transition-all duration-300 ${
-          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        } overflow-hidden`}
+        className={`transition-all overflow-hidden duration-300 ${
+          isOpen ? "max-h-40 opacity-100 mt-3" : "max-h-0 opacity-0"
+        }`}
       >
-        {answer && (
-          <div className="px-8 pb-6">
-            <div className="pt-2 border-t border-slate-100">
-              <p className="text-slate-600 leading-relaxed mt-4">{answer}</p>
-            </div>
-          </div>
-        )}
+        <p className="text-gray-600 pr-4">{answer}</p>
       </div>
     </div>
   );

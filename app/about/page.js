@@ -1,108 +1,182 @@
-
-
 "use client";
 import React from "react";
 import { FaPlus } from "react-icons/fa";
+import { motion } from "framer-motion";
 import Footer from "../Component/Footer";
-import Navbar from '../Component/Navbar';
+import Navbar from "../Component/Navbar";
+
+/* ------------------------------
+   ANIMATION VARIANTS
+--------------------------------*/
+
+// Fade Up
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+};
+
+// Stagger Parent
+const staggerParent = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.18 } },
+};
+
+// Letter-by-letter Animation
+const letterVariant = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.35 } },
+};
+
+const letterParent = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
 
 const Page = () => {
   return (
     <main className="w-full">
-      <Navbar/>
-      {/* ---------- Hero Section ---------- */}
-      <section className="relative h-[20vh] w-full mt-20">
+      <Navbar />
+
+      {/* ---------- Hero Section (With Letter Animation) ---------- */}
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        className="relative h-[20vh] w-full mt-12 sm:mt-20"
+      >
         <img
           src="/about-hero.avif"
           alt="About Banner"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-[#213753]/70 flex items-center justify-center">
-          <h1 className="text-5xl md:text-6xl  text-white">About</h1>
+          <motion.h1
+            variants={letterParent}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="text-5xl md:text-6xl text-white flex gap-1"
+          >
+            {"About Us".split("").map((char, i) => (
+              <motion.span key={i} variants={letterVariant}>
+                {char}
+              </motion.span>
+            ))}
+          </motion.h1>
         </div>
-      </section>
+      </motion.section>
 
       {/* ---------- Section 1 ---------- */}
-      <section className="w-full py-20 px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        className="w-full py-20 px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+      >
         {/* Left Image */}
-        <div>
-          <img
+        <motion.div variants={fadeUp}>
+          <motion.img
             src="/law-meeting.avif"
             alt="Law Consultation"
             className="rounded-xl w-full object-cover"
+            initial={{ scale: 1.05, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8 }}
           />
-        </div>
+        </motion.div>
 
         {/* Right Content */}
-        <div>
-          <h2 className="text-4xl  text-[#213753] mb-6">
+        <motion.div variants={staggerParent}>
+          <motion.h2 variants={fadeUp} className="text-4xl text-[#213753] mb-6">
             We uphold the highest standards of integrity
-          </h2>
-          <p className="text-gray-600 mb-8 leading-relaxed">
+          </motion.h2>
+
+          <motion.p variants={fadeUp} className="text-gray-600 mb-8 leading-relaxed">
             We prioritize our clients&apos; needs, understanding that each case is unique.
             Our team of seasoned attorneys is committed to delivering tailored solutions,
             ensuring you receive the attention and representation you deserve.
-          </p>
+          </motion.p>
 
-          {/* Accordion */}
-          <div className="space-y-4">
+          <motion.div variants={staggerParent} className="space-y-4">
             {["Proven track record", "Personalized approach"].map((item, i) => (
-              <div
+              <motion.div
+                variants={fadeUp}
                 key={i}
+                whileHover={{ x: 8 }}
                 className="flex justify-between items-center border-b border-[#213753]/30 pb-2 cursor-pointer hover:opacity-80"
               >
                 <h4 className="text-lg font-medium text-[#213753]">{item}</h4>
                 <FaPlus className="text-[#213753]" />
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
+          </motion.div>
+        </motion.div>
+      </motion.section>
 
       {/* ---------- Section 2 ---------- */}
-      <section className="w-full py-20 px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={staggerParent}
+        className="w-full py-20 px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white"
+      >
         {/* Left Content */}
-        <div>
-          <h3 className="text-3xl  text-[#213753] mb-4">
+        <motion.div variants={fadeUp}>
+          <h3 className="text-3xl text-[#213753] mb-4">
             We handle a wide range of legal matters
           </h3>
           <p className="text-gray-600 leading-relaxed mb-8">
             Our team of seasoned attorneys is committed to delivering tailored
             solutions, ensuring you receive the attention and representation you deserve.
           </p>
-          <div className="flex gap-12">
-            <div>
+
+          <motion.div variants={staggerParent} className="flex gap-12">
+            <motion.div variants={fadeUp}>
               <h4 className="text-3xl font-bold text-[#213753]">15+</h4>
               <p className="text-gray-600">Years of experience</p>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div variants={fadeUp}>
               <h4 className="text-3xl font-bold text-[#213753]">84k</h4>
               <p className="text-gray-600">Clients worldwide</p>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
 
         {/* Right Image */}
-        <div>
-          <img
+        <motion.div variants={fadeUp}>
+          <motion.img
             src="/legal-docs.avif"
             alt="Documents"
             className="rounded-xl w-full object-cover"
+            initial={{ opacity: 0, scale: 1.07 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
           />
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       {/* ---------- Section 3 ---------- */}
-      <section className="bg-[#dce9f9] py-20 px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={staggerParent}
+        className="bg-[#dce9f9] py-20 px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+      >
         {/* Left Accordion */}
-        <div className="space-y-4">
+        <motion.div variants={staggerParent} className="space-y-4">
           {[
             { title: "Initial consultation", active: false },
             { title: "Tailored legal strategy", active: true },
             { title: "Dedicated representation", active: false },
           ].map((item, i) => (
-            <div
+            <motion.div
               key={i}
+              variants={fadeUp}
+              whileHover={{ scale: 1.02 }}
               className={`p-4 rounded-lg ${
                 item.active
                   ? "bg-[#213753] text-white"
@@ -118,13 +192,13 @@ const Page = () => {
                 Our comprehensive expertise allows us to handle a wide range of
                 legal matters efficiently.
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Right Content */}
-        <div>
-          <h3 className="text-3xl  text-[#213753] mb-4">
+        <motion.div variants={fadeUp}>
+          <h3 className="text-3xl text-[#213753] mb-4">
             Your rights matter, we are here to defend them
           </h3>
           <p className="text-gray-600 leading-relaxed mb-6">
@@ -132,20 +206,28 @@ const Page = () => {
             Our team of seasoned attorneys is committed to delivering tailored
             solutions, ensuring you receive the attention and representation you deserve.
           </p>
-          <a
+
+          <motion.a
+            whileHover={{ scale: 1.06 }}
             href="/contact"
             className="bg-[#213753] text-white px-6 py-3 rounded-full hover:bg-[#1a2f4d] transition-all inline-block"
           >
             Get a Free Consultation
-          </a>
-        </div>
-      </section>
+          </motion.a>
+        </motion.div>
+      </motion.section>
 
       {/* ---------- Section 4 ---------- */}
-      <section className="bg-[#1c2e46] text-white py-20 px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={staggerParent}
+        className="bg-[#1c2e46] text-white py-20 px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+      >
         {/* Left Content */}
-        <div>
-          <h3 className="text-3xl  mb-6">
+        <motion.div variants={fadeUp}>
+          <h3 className="text-3xl mb-6">
             Trust is the foundation of attorney–client relationship
           </h3>
           <p className="text-white/80 mb-8 leading-relaxed">
@@ -153,32 +235,143 @@ const Page = () => {
             and protection of human rights.
           </p>
 
-          <div className="flex gap-4">
-            <a
-              href="/services"
-              className="bg-white text-[#1c2e46] px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition-all"
-            >
-              Explore More
-            </a>
-            <a
-              href="/contact"
-              className="border border-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-[#1c2e46] transition-all"
-            >
-              Get in Touch
-            </a>
-          </div>
-        </div>
+         <div className="flex gap-4">
+  <motion.a
+    whileHover={{ scale: 1.07 }}
+    href="/services"
+    className="bg-white text-[#1c2e46] px-6 py-3 rounded-full font-medium 
+             transition-all hover:scale-105"
+  >
+    Explore More
+  </motion.a>
 
-        {/* Right Video/Image */}
-        <div>
-          <img
-            src="/trust-section.jpg"
+  <motion.a
+    whileHover={{ scale: 1.07 }}
+    href="/contact"
+    className="border border-white px-6 py-3 rounded-full font-medium 
+              transition-all hover:scale-105"
+  >
+    Get in Touch
+  </motion.a>
+</div>
+
+        </motion.div>
+
+        {/* Right Image */}
+        <motion.div variants={fadeUp}>
+          <motion.img
+            src="/trust-section.avif"
             alt="Attorney Meeting"
             className="rounded-xl w-full object-cover"
+            initial={{ opacity: 0, scale: 1.07 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
           />
+        </motion.div>
+      </motion.section>
+{/* ---------- Services Section (Inserted) ---------- */}
+
+<motion.section
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  variants={staggerParent}
+  className="w-full py-24 px-6 md:px-16"
+>
+  {/* Header */}
+  <div className="flex items-center justify-between mb-12">
+    <div>
+      <motion.h2 variants={fadeUp} className="text-4xl text-[#213753]">
+        Services
+      </motion.h2>
+      <motion.p variants={fadeUp} className="text-gray-600 mt-2">
+        We prioritize our clients' needs, understanding that each case is unique.
+      </motion.p>
+    </div>
+
+    <motion.a
+      variants={fadeUp}
+      whileHover={{ scale: 1.05 }}
+      href="/our-services"
+      className="px-6 py-2 rounded-full bg-[#213753] text-white hover:bg-[#1a2f4d] transition"
+    >
+      Explore All
+    </motion.a>
+  </div>
+
+  {/* Grid */}
+  <motion.div variants={staggerParent} className="grid md:grid-cols-2 gap-10">
+    {[
+      {
+        title: "Personal injury",
+        desc:
+          "Our unwavering commitment truly lies in delivering outstanding legal services with unparalleled expertise and a truly tailored approach.",
+        img: "/personal-injury.avif",
+        icon: "🩺",
+      },
+      {
+        title: "Family law advocacy",
+        desc:
+          "With care and utmost professionalism, we are dedicated to supporting your family law needs, promoting fairness and harmony.",
+        img: "/family-law.avif",
+        icon: "👨‍👩‍👦",
+      },
+      {
+        title: "Property deals",
+        desc:
+          "Providing expert legal support for smooth and secure property deals, guiding you from detailed contracts to hassle-free closings.",
+        img: "/property-deals.avif",
+        icon: "🏠",
+      },
+      {
+        title: "Business formation",
+        desc:
+          "Expert support in business formation, from choosing a structure to ensuring compliance, for a confident start to your venture.",
+        img: "/business-formation.avif",
+        icon: "👥",
+      },
+    ].map((card, i) => (
+      <motion.div
+        key={i}
+        variants={fadeUp}
+        whileHover={{ scale: 1.02 }}
+        className="relative overflow-hidden shadow-lg group rounded-xl"
+      >
+        {/* Image */}
+        <img
+          src={card.img}
+          className="w-full h-64 object-cover"
+          alt={card.title}
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
+
+        {/* Content */}
+        <div className="absolute bottom-6 left-6 text-white max-w-md">
+          <div className="mb-4">
+            <div className="h-12 w-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-xl">
+              {card.icon}
+            </div>
+          </div>
+
+          <h3 className="text-2xl ">{card.title}</h3>
+          <p className="text-sm mt-2 opacity-90">{card.desc}</p>
+
+          <a
+            href="#"
+            className="text-sm underline mt-4 inline-block hover:opacity-80"
+          >
+            Learn more
+          </a>
         </div>
-      </section>
-          <Footer />
+      </motion.div>
+    ))}
+  </motion.div>
+</motion.section>
+
+
+      <Footer />
     </main>
   );
 };

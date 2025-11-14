@@ -1,55 +1,145 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section
-      className="relative min-h-screen flex flex-col justify-center text-white bg-[url('/lawyer-bg.avif')] bg-cover bg-center"
-    >
+  
+  <section
+  className="
+    relative 
+    min-h-screen 
+    flex flex-col 
+
+    justify-start        /* mobile = top aligned */
+    pt-32              /* mobile = padding for spacing */
+
+    sm:justify-center    /* tablet + desktop = centered */
+    sm:pt-0              /* remove padding on larger screens */
+
+    text-white 
+    bg-[url('/lawyer-bg.avif')] 
+    bg-cover 
+    bg-center
+  "
+>
+
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/50"></div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 md:px-16 max-w-6xl">
-        <h1 className="text-3xl md:text-6xl  leading-tight mb-6">
+      <div className="relative z-10  container mx-auto px-4 md:px-16 max-w-6xl">
+
+        {/* Heading */}
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-2xl sm:text-4xl md:text-5xl leading-snug md:leading-tight mb-6 max-w-xl"
+        >
           We tailor our approach to meet individual needs
-        </h1>
+        </motion.h1>
 
-        <p className="text-lg md:text-lg text-gray-200 max-w-2xl mb-8">
-          Our team of seasoned attorneys is committed to delivering tailored solutions, ensuring you receive the attention and representation you deserve. Our comprehensive expertise allows us to handle a wide range of legal matters effectively.
-        </p>
+        {/* Paragraph */}
+        <motion.p
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-base sm:text-lg text-gray-200 max-w-xl mb-8"
+        >
+          Our team of seasoned attorneys is committed to delivering tailored
+          solutions, ensuring you receive the attention and representation you deserve.
+        </motion.p>
 
-        <div className="flex flex-wrap gap-4">
-          <button className="bg-[#ddebf9] text-[#213753] ` px-6 py-3 rounded-full hover:bg-[#c7dff5] transition">
+        {/* Buttons */}
+        <motion.div
+          className="flex flex-wrap gap-3 sm:gap-4"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.2 } },
+          }}
+        >
+          {/* Button 1 */}
+          <motion.button
+            variants={{
+              hidden: { opacity: 0, y: 20, scale: 0.8 },
+              visible: { opacity: 1, y: 0, scale: 1 },
+            }}
+            whileHover={{ scale: 1.07 }}
+            transition={{ duration: 0.3 }}
+            className="bg-[#ddebf9] text-[#213753] px-5 py-3 rounded-full text-sm sm:text-base"
+          >
             Book Consultation
-          </button>
-          <button className="border border-[#ddebf9] text-[#ddebf9]  px-6 py-3 rounded-full hover:bg-[#ddebf9]/10 transition">
+          </motion.button>
+
+          {/* Button 2 */}
+          <motion.button
+            variants={{
+              hidden: { opacity: 0, y: 20, scale: 0.8 },
+              visible: { opacity: 1, y: 0, scale: 1 },
+            }}
+            whileHover={{ scale: 1.07 }}
+            transition={{ duration: 0.3 }}
+            className="border border-[#ddebf9] text-[#ddebf9] px-5 py-3 rounded-full text-sm sm:text-base"
+          >
             Explore More
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
 
+      {/* ======================== */}
       {/* Bottom Stats Bar */}
+      {/* ======================== */}
       <div className="absolute bottom-0 w-full bg-[#213753]/90 py-8">
-        <div className="container mx-auto px-6 md:px-16 flex flex-wrap justify-between text-center text-white">
-          <div className="flex-1 min-w-[150px] mb-4 md:mb-0">
-            <h3 className="text-3xl font-bold">15+</h3>
-            <p className="text-gray-300">Years of experience</p>
-          </div>
-          <div className="flex-1 min-w-[150px] mb-4 md:mb-0">
-            <h3 className="text-3xl font-bold">84k</h3>
-            <p className="text-gray-300">Clients worldwide</p>
-          </div>
-          <div className="flex-1 min-w-[150px] mb-4 md:mb-0">
-            <h3 className="text-3xl font-bold">28</h3>
-            <p className="text-gray-300">Awards & honors</p>
-          </div>
-          <div className="flex-1 min-w-[150px]">
-            <h3 className="text-3xl font-bold">15+</h3>
-            <p className="text-gray-300">Years of experience</p>
-          </div>
-        </div>
+        <motion.div
+          className="container mx-auto px-4 md:px-16 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center text-white"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.25 } },
+          }}
+        >
+          {[
+            { number: "15+", label: "Years of experience" },
+            { number: "84k", label: "Clients worldwide" },
+            { number: "28", label: "Awards & honors" },
+            { number: "15+", label: "Years of experience" },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              className="flex flex-col items-center"
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.h3
+                className="text-2xl sm:text-3xl font-bold"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                {item.number}
+              </motion.h3>
+
+              <motion.p
+                className="text-gray-300 text-sm sm:text-base"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.35 }}
+              >
+                {item.label}
+              </motion.p>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
+
     </section>
   );
 }
