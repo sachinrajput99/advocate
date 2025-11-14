@@ -13,7 +13,7 @@ const AboutUsSection = () => {
             We uphold the highest standards of integrity
           </h2>
           <p className="text-gray-600 text-base leading-relaxed mb-8">
-            We prioritize our clients' needs, understanding that each case is
+            We prioritize our clients&apos; needs, understanding that each case is
             unique. Our team of seasoned attorneys is committed to delivering
             tailored solutions, ensuring you receive the attention and
             representation you deserve. Our comprehensive expertise allows us
