@@ -13,7 +13,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Scale className="w-6 h-6 text-[#324563]" />
-          <h1 className="font-serif text-lg text-[#131820]">Saini & Associates</h1>
+          <h1 className="font-serif text-2xl text-[#131820]">Saini & Associates</h1>
         </Link>
 
         {/* Desktop Navigation */}
@@ -23,7 +23,7 @@ export default function Navbar() {
                 { name: "Contact", href: "/contact" },
             { name: "Specialisation", href: "ourservices" },
         
-            { name: "pricing", href: "/pricing" },
+            { name: "Pricing", href: "/pricing" },
           
             
           ].map((link) => (

@@ -3,45 +3,47 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 
 export default function SplashScreen({ onFinish }) {
-  const text = "DIVYA SAINI AND ASSOCIATES";
+  const text = "Saini & Associates".toUpperCase();
 
   useEffect(() => {
     setTimeout(() => {
       onFinish();
-    }, 1900);
+    }, 2500); // full animation duration
   }, []);
 
+  // Animation for each letter
   const letterVariant = {
-    hidden: { opacity: 0, x: 50 },
+    hidden: { opacity: 0, x: 60 },
     show: (i) => ({
       opacity: 1,
       x: 0,
       transition: {
-        delay: i * 0.045,
-        duration: 0.38,
-        ease: "easeOut",
+        delay: i * 0.06,
+        duration: 0.6,
+        ease: [0.25, 0.1, 0.25, 1],
       },
     }),
   };
 
   return (
     <motion.div
-      className="relative h-screen w-full flex justify-center items-center overflow-hidden"
+      className="relative flex justify-start items-center h-screen w-screen overflow-hidden"
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
-      {/* 🔥 FULL BACKGROUND IMAGE */}
-      <img
-        src="/divya.jpeg"
-        alt="Background"
-        className="absolute  bottom-[15%] w-full h-full object-cover"
+      {/* BACKGROUND IMAGE */}
+      <motion.div
+        className="absolute inset-0 bg-cover bg-right sm:bg-center        bg-[length:auto_100%]   /* height full, width auto */
+    bg-[position:calc(100%_-_-130px)_center] /* start 400px from right */"
+        style={{ backgroundImage: "url('/divya-trust3.jpeg')" }}
+        initial={{ opacity: 0, scale: 1.2 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
       />
 
-      {/* 🔥 SOFT DARK OVERLAY FOR TEXT CLARITY */}
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
-
-      {/* 🔥 ANIMATED TEXT */}
-      <div className="relative z-10 flex gap-[0.28em] flex-wrap justify-center tracking-[0.32em] text-white">
+      {/* TEXT */}
+      <div className="relative flex gap-[0.25em] flex-wrap justify-center tracking-[0.25em] text-white z-10">
         {text.split("").map((char, i) => (
           <motion.span
             key={i}
@@ -49,7 +51,7 @@ export default function SplashScreen({ onFinish }) {
             variants={letterVariant}
             initial="hidden"
             animate="show"
-            className="text-4xl md:text-6xl font-extrabold drop-shadow-lg"
+            className="text-xl md:text-7xl font-bold   font-[cursive] mt-16 sm:mt-0"
           >
             {char === " " ? "\u00A0" : char}
           </motion.span>

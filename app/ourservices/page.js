@@ -45,7 +45,7 @@ const Page = () => {
     img: "/business-formation.avif",
   },
   {
-    title: "Customer Matters",
+    title: "Consumer Matters",
     desc: "Consumer court cases related to defective services, products, fraud and unfair practices.",
     icon: "🛍️",
     img: "consumerlaw.jpeg",

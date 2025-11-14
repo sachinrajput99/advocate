@@ -135,11 +135,11 @@ const Page = () => {
 
           <motion.div variants={staggerParent} className="flex gap-12">
             <motion.div variants={fadeUp}>
-              <h4 className="text-3xl font-bold text-[#213753]">15+</h4>
+              <h4 className="text-3xl font-bold text-[#213753]">5+</h4>
               <p className="text-gray-600">Years of experience</p>
             </motion.div>
             <motion.div variants={fadeUp}>
-              <h4 className="text-3xl font-bold text-[#213753]">84k</h4>
+              <h4 className="text-3xl font-bold text-[#213753]">20k</h4>
               <p className="text-gray-600">Clients worldwide</p>
             </motion.div>
           </motion.div>
@@ -302,34 +302,30 @@ const Page = () => {
   {/* Grid */}
   <motion.div variants={staggerParent} className="grid md:grid-cols-2 gap-10">
     {[
-      {
-        title: "Personal injury",
-        desc:
-          "Our unwavering commitment truly lies in delivering outstanding legal services with unparalleled expertise and a truly tailored approach.",
-        img: "/personal-injury.avif",
-        icon: "🩺",
-      },
-      {
-        title: "Family law advocacy",
-        desc:
-          "With care and utmost professionalism, we are dedicated to supporting your family law needs, promoting fairness and harmony.",
-        img: "/family-law.avif",
-        icon: "👨‍👩‍👦",
-      },
-      {
-        title: "Property deals",
-        desc:
-          "Providing expert legal support for smooth and secure property deals, guiding you from detailed contracts to hassle-free closings.",
-        img: "/property-deals.avif",
-        icon: "🏠",
-      },
-      {
-        title: "Business formation",
-        desc:
-          "Expert support in business formation, from choosing a structure to ensuring compliance, for a confident start to your venture.",
-        img: "/business-formation.avif",
-        icon: "👥",
-      },
+       {
+    title: "Criminal Matters",
+    desc: "Bail, anticipatory bail, quashing, criminal appeals, and complete criminal litigation support.",
+    icon: "⚖️",
+    img: "/document.avif",
+  },
+  {
+    title: "Civil Matters",
+    desc: "Property disputes, injunctions, recovery suits, and all types of civil litigation.",
+    icon: "📜",
+    img: "civillaw.jpeg",
+  },
+  {
+    title: "Matrimonial Matters",
+    desc: "Divorce, alimony, domestic violence, judicial separation, and family dispute resolution.",
+    icon: "💍",
+    img: "/family-law.avif",
+  },
+  {
+    title: "Consumer Matters",
+    desc: "Consumer court cases related to defective services, products, fraud and unfair practices.",
+    icon: "🛍️",
+    img: "consumerlaw.jpeg",
+  },
     ].map((card, i) => (
       <motion.div
         key={i}
@@ -358,12 +354,6 @@ const Page = () => {
           <h3 className="text-2xl ">{card.title}</h3>
           <p className="text-sm mt-2 opacity-90">{card.desc}</p>
 
-          <a
-            href="#"
-            className="text-sm underline mt-4 inline-block hover:opacity-80"
-          >
-            Learn more
-          </a>
         </div>
       </motion.div>
     ))}

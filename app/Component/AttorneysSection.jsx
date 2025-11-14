@@ -16,12 +16,12 @@ const staggerParent = {
 
 export default function AttorneysSection() {
   const attorneys = [
-    { name: "Divya Saini", role: "Founder", img: "/attorneys/theresa.avif", url: "/attorneys/theresa" },
-    { name: "Guy Hawkins", role: "Lawyer", img: "/attorneys/guy.avif", url: "/attorneys/guy-hawkins" },
-    { name: "Brook Seims", role: "Lawyer", img: "/attorneys/brook.avif", url: "/attorneys/brook-seims" },
-    { name: "Arlene McCoy", role: "Lawyer", img: "/attorneys/arlene.avif", url: "/attorneys/arlene-mccoy" },
-    { name: "Traice Dantini", role: "Lawyer", img: "/attorneys/traice.avif", url: "/attorneys/traice-dantini" },
-    { name: "Kira Zayn", role: "Lawyer", img: "/attorneys/kira.avif", url: "/attorneys/kira-zayn" },
+    { name: "Divya Saini", role: "Founder", img: "/attorneys/divya.png", url: "/attorneys/theresa" },
+    { name: "Jayant Chandila", role: "Lawyer", img: "/attorneys/jayant-chandila.png", url: "/attorneys/guy-hawkins" },
+    { name: "Kabir khan", role: "Lawyer", img: "/attorneys/kabir-khan.jpg", url: "/attorneys/brook-seims" },
+    { name: "Shivani Sharma ", role: "Lawyer", img: "/attorneys/shivani-sharma.png", url: "/attorneys/arlene-mccoy" },
+    { name: "Arun Saini", role: "Lawyer", img: "/attorneys/arun-saini.png", url: "/attorneys/traice-dantini" },
+
   ];
 
   return (

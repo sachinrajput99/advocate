@@ -5,24 +5,54 @@ import { motion } from "framer-motion";
 export default function HeroSection() {
   return (
   
-  <section
+//   <section
+//   className="
+//   sm:mt-16
+//     relative 
+//     min-h-screen 
+//     flex flex-col 
+
+//     justify-start        /* mobile = top aligned */
+//     pt-32              /* mobile = padding for spacing */
+
+//     sm:justify-center    /* tablet + desktop = centered */
+//     sm:pt-0              /* remove padding on larger screens */
+
+//     text-white 
+//     bg-[url('/divya-hero.jpg')] 
+   
+//     sm:bg-cover 
+//    sm: bg-center
+//         bg-[length:auto_100%]   /* height full, width auto */
+//     bg-[position:calc(100%_-_-160px)_center] /* start 400px from right */
+//   "
+// >
+<section
   className="
+    sm:mt-16
     relative 
     min-h-screen 
     flex flex-col 
-
     justify-start        /* mobile = top aligned */
-    pt-32              /* mobile = padding for spacing */
-
+    pt-32                /* mobile = padding for spacing */
     sm:justify-center    /* tablet + desktop = centered */
     sm:pt-0              /* remove padding on larger screens */
-
     text-white 
-    bg-[url('/lawyer-bg.avif')] 
-    bg-cover 
-    bg-center
+
+    /* Desktop / Tablet background */
+    sm:bg-[url('/divya-hero.jpg')]
+    sm:bg-cover 
+    sm:bg-center
+    sm:bg-no-repeat
+
+    /* Mobile background */
+    bg-[url('/divya-hero.jpg')]
+    bg-[length:auto_100%]           /* height full, width auto */
+    bg-[position:calc(100%_-_-140px)_center] /* start 160px from right on mobile */
+    bg-no-repeat
   "
 >
+   {/* // bg-[url('/lawyer-bg.avif')]  */}
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/50"></div>

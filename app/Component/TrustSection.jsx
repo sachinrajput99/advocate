@@ -15,9 +15,11 @@ export default function TrustSection() {
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
         <img
-          src="https://framerusercontent.com/images/MDTIxacK7g2pz8XwmhehKudXG8.jpg?width=1920&height=1282"
+          src="/divya-trust.jpg"
           alt="Lawyers discussing"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover
+         
+          "
         />
 
         {/* 🔹 Dark Overlay */}
