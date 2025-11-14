@@ -1,6 +1,10 @@
+"use client"
+import { useState } from "react";
+import SplashScreen from "./Component/SplashScreen";
 import HeroSection from "./Component/Hero";
 
 import SpecialisationsSection from "./Component/SpecialisationsSection";
+import AttorneysSection from "./Component/AttorneysSection";
 
 import RightsMatterSection from "./Component/RightsMatterSection";
 
@@ -17,9 +21,29 @@ import Footer from "./Component/Footer";
 import Navbar from "./Component/Navbar";
 import WhatsappButton from "./Component/WhatsappButton";
 import Head from "next/head";
+
+
+// export default function Home() {
+//   return (
+   
+//   );
+// }
+
+
+
+
+
 export default function Home() {
+  const [done, setDone] = useState(false);
+
   return (
     <>
+      {!done ? (
+        <SplashScreen onFinish={() => setDone(true)} />
+      ) : (
+        <main >
+       
+         <>
       <Head>
         <link rel="icon" href="/favicon.png" />
         {/* favicon.ico ko public folder me rakho */}
@@ -27,10 +51,12 @@ export default function Home() {
       <Navbar />
       <HeroSection />
 
-<RightsMatterSection/>
+
 <AboutUsSection/>
       <TrustSection />
 <SpecialisationsSection/>
+<RightsMatterSection/>
+<AttorneysSection/>
      
    
       <ContactSection />
@@ -41,6 +67,9 @@ export default function Home() {
       {/* <ContactSection1 /> */}
       <Footer />
       <WhatsappButton />
+    </>
+        </main>
+      )}
     </>
   );
 }

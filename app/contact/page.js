@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import Footer from "../Component/Footer";
 import Navbar from "../Component/Navbar";
+import Pricing from "../Component/Pricing";
 
 export default function Page() {
   const [form, setForm] = useState({
@@ -20,138 +22,98 @@ export default function Page() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", form);
+
+    emailjs
+      .send(
+        "YOUR_SERVICE_ID",    // ⭐ Replace
+        "YOUR_TEMPLATE_ID",   // ⭐ Replace
+        form,                 // Yeh data EmailJS template me jayega
+        "YOUR_PUBLIC_KEY"     // ⭐ Replace
+      )
+      .then(
+        () => {
+          alert("Request sent successfully!");
+
+          setForm({
+            name: "",
+            email: "",
+            contact: "",
+            service: "",
+            message: "",
+          });
+        },
+        (error) => {
+          console.log(error);
+          alert("Failed to send request, please try again.");
+        }
+      );
   };
 
-  // Framer Motion Variants
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   const stagger = {
     show: {
-      transition: { staggerChildren: 0.15 }
-    }
-  };
-
-  const scaleIn = {
-    hidden: { opacity: 0, scale: 0.85 },
-    show: { opacity: 1, scale: 1, transition: { duration: 0.6 } }
-  };
-
-  // LETTER BY LETTER TITLE
-  const title = "Contact Us".split("");
-
-  const letterAnim = {
-    hidden: { opacity: 0, y: 25 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.35, ease: "easeOut" }
-    }
+      transition: { staggerChildren: 0.15 },
+    },
   };
 
   return (
     <>
       <Navbar />
 
-      <div className="bg-white mt-24">
+      <div className="bg-gray-50 mt-24">
+        <section className="max-w-6xl mx-auto px-8 py-20 grid md:grid-cols-2 gap-12">
 
-        {/* HERO SECTION */}
-        <section className="relative bg-gradient-to-b from-slate-800 to-slate-900 text-white py-20 text-center">
-          <motion.h1
-            className="text-4xl  flex justify-center gap-[2px]"
-            initial="hidden"
-            animate="show"
-            variants={{ show: { transition: { staggerChildren: 0.08 } } }}
-          >
-            {title.map((letter, i) => (
-              <motion.span key={i} variants={letterAnim}>
-                {letter === " " ? "\u00A0" : letter}
-              </motion.span>
-            ))}
-          </motion.h1>
-        </section>
-
-        {/* LEGAL MATTERS */}
-        <section className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
-          
-          {/* TEXT BLOCK */}
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show">
-            <h2 className="text-2xl text-gray-900 mb-4">
-              We handle a wide range of legal matters
-            </h2>
-            <p className="text-gray-600 mb-6">
-              We prioritize our clients&apos; needs, understanding that each case is
-              unique. Our team of seasoned attorneys is committed to delivering tailored
-              solutions.
-            </p>
-
-            {/* CARDS */}
-            <div className="flex gap-6">
-              <motion.div
-                variants={scaleIn}
-                initial="hidden"
-                whileInView="show"
-                className="bg-slate-100 p-4 rounded-lg text-center w-32"
-              >
-                <p className="text-2xl text-slate-800">15+</p>
-                <p className="text-gray-500 text-sm">Years of experience</p>
-              </motion.div>
-
-              <motion.div
-                variants={scaleIn}
-                initial="hidden"
-                whileInView="show"
-                className="bg-slate-100 p-4 rounded-lg text-center w-32"
-              >
-                <p className="text-2xl text-slate-800">84k</p>
-                <p className="text-gray-500 text-sm">Clients worldwide</p>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* IMAGE */}
-          <motion.img
-            src="/law-office.avif"
-            alt="Law office"
-            className="rounded-xl shadow-md w-full object-cover"
+          {/* LEFT SECTION */}
+          <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
-          />
-        </section>
+            className="max-w-md space-y-8"
+          >
+            <h2 className="text-4xl font-semibold text-gray-900">Contact</h2>
 
-        {/* CUSTOMER SUPPORT + FORM */}
-        <section className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10">
-          
-          {/* TEXT */}
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show">
-            <h2 className="text-2xl text-gray-900 mb-4">
-              Customer support and assistance
-            </h2>
-            <p className="text-gray-600">
-              We prioritize our clients&apos; needs and provide tailored legal assistance.
-            </p>
+            <hr className="border-gray-300" />
+
+            <div className="space-y-5 text-gray-700">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">📧</span>
+                <p className="text-gray-800">sainidivya1003@gmail.com</p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">📍</span>
+                <p className="text-gray-800">
+                  We proudly serve clients in Delhi, Haryana & Punjab High Courts.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">💬</span>
+                <p className="text-gray-800">Book consultation</p>
+              </div>
+            </div>
           </motion.div>
 
-          {/* FORM */}
+          {/* FORM SECTION */}
           <motion.form
             onSubmit={handleSubmit}
             variants={stagger}
             initial="hidden"
             whileInView="show"
-            className="space-y-4"
+            className="space-y-6 bg-white p-8 rounded-xl shadow-md"
           >
-            <motion.div className="grid md:grid-cols-2 gap-4" variants={fadeUp}>
+            <motion.div className="grid md:grid-cols-2 gap-6" variants={fadeUp}>
               <input
                 type="text"
                 name="name"
                 placeholder="Full name*"
                 value={form.name}
                 onChange={handleChange}
-                className="w-full p-3 rounded-md bg-slate-100 outline-none focus:ring-2 focus:ring-slate-400"
+                className="w-full p-4 rounded-md bg-gray-100 outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
               <input
@@ -160,33 +122,40 @@ export default function Page() {
                 placeholder="Email*"
                 value={form.email}
                 onChange={handleChange}
-                className="w-full p-3 rounded-md bg-slate-100 outline-none focus:ring-2 focus:ring-slate-400"
+                className="w-full p-4 rounded-md bg-gray-100 outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
             </motion.div>
 
-            <motion.div className="grid md:grid-cols-2 gap-4" variants={fadeUp}>
+            <motion.div className="grid md:grid-cols-2 gap-6" variants={fadeUp}>
               <input
                 type="text"
                 name="contact"
                 placeholder="Contact number*"
                 value={form.contact}
                 onChange={handleChange}
-                className="w-full p-3 rounded-md bg-slate-100 outline-none focus:ring-2 focus:ring-slate-400"
+                className="w-full p-4 rounded-md bg-gray-100 outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
+
               <select
                 name="service"
                 value={form.service}
                 onChange={handleChange}
-                className="w-full p-3 rounded-md bg-slate-100 outline-none focus:ring-2 focus:ring-slate-400"
+                className="w-full p-4 rounded-md bg-gray-100 outline-none focus:ring-2 focus:ring-blue-400"
                 required
               >
                 <option value="">Choose service*</option>
-                <option value="corporate-law">Corporate Law</option>
-                <option value="family-law">Family Law</option>
-                <option value="civil-rights">Civil Rights</option>
-                <option value="criminal-law">Criminal Law</option>
+                <option value="criminal">Criminal Matters</option>
+                <option value="civil">Civil Matters</option>
+                <option value="matrimonial">Matrimonial Matters</option>
+                <option value="commercial">Commercial Matters</option>
+                <option value="consumer">Consumer Matters</option>
+                <option value="arbitration">Arbitration Services</option>
+                <option value="property">Property Registration</option>
+                <option value="legal-notice">Legal Notices</option>
+                <option value="court-marriage">Court Marriage</option>
+                <option value="marriage-registration">Marriage Registration</option>
               </select>
             </motion.div>
 
@@ -196,23 +165,27 @@ export default function Page() {
               placeholder="Message"
               value={form.message}
               onChange={handleChange}
-              className="w-full p-3 rounded-md bg-slate-100 outline-none focus:ring-2 focus:ring-slate-400"
-              rows="4"
+              className="w-full p-4 rounded-md bg-gray-100 outline-none focus:ring-2 focus:ring-blue-400"
+              rows="5"
             ></motion.textarea>
 
-            {/* BUTTON */}
             <motion.button
               type="submit"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.94 }}
-              className="bg-slate-900 text-white px-6 py-3 rounded-md transition-all"
+              className="bg-slate-900 w-full text-white px-6 py-4 text-lg rounded-md shadow-md"
             >
               Submit Request
             </motion.button>
+
           </motion.form>
         </section>
       </div>
 
+      <Pricing />
       <Footer />
     </>
   );

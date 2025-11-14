@@ -62,7 +62,8 @@ export default function HeroSection() {
           }}
         >
           {/* Button 1 */}
-          <motion.button
+          <motion.a
+          href="/contact"
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.8 },
               visible: { opacity: 1, y: 0, scale: 1 },
@@ -72,10 +73,11 @@ export default function HeroSection() {
             className="bg-[#ddebf9] text-[#213753] px-5 py-3 rounded-full text-sm sm:text-base"
           >
             Book Consultation
-          </motion.button>
+          </motion.a>
 
           {/* Button 2 */}
-          <motion.button
+          <motion.a
+           href="#specialized"
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.8 },
               visible: { opacity: 1, y: 0, scale: 1 },
@@ -85,7 +87,7 @@ export default function HeroSection() {
             className="border border-[#ddebf9] text-[#ddebf9] px-5 py-3 rounded-full text-sm sm:text-base"
           >
             Explore More
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
 
@@ -104,10 +106,10 @@ export default function HeroSection() {
           }}
         >
           {[
-            { number: "15+", label: "Years of experience" },
-            { number: "84k", label: "Clients worldwide" },
-            { number: "28", label: "Awards & honors" },
-            { number: "15+", label: "Years of experience" },
+        { number: "5+", label: "Years of Experience" },
+  { number: "20k", label: "Clients Served" },
+ { number: "10+", label: "Specialized Legal Fields" },
+  { number: "24/7", label: "Legal Assistance" }
           ].map((item, i) => (
             <motion.div
               key={i}

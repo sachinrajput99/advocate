@@ -212,7 +212,7 @@ const Page = () => {
             href="/contact"
             className="bg-[#213753] text-white px-6 py-3 rounded-full hover:bg-[#1a2f4d] transition-all inline-block"
           >
-            Get a Free Consultation
+            Get  Consultation
           </motion.a>
         </motion.div>
       </motion.section>

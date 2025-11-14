@@ -13,16 +13,18 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Scale className="w-6 h-6 text-[#324563]" />
-          <h1 className="font-serif text-lg text-[#131820]">Peter Clark</h1>
+          <h1 className="font-serif text-lg text-[#131820]">Saini & Associates</h1>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-10 text-[#131820] text-[15px] font-normal">
           {[  { name: "Home", href: "/" },
+              { name: "About", href: "/about" },
+                { name: "Contact", href: "/contact" },
             { name: "Specialisation", href: "ourservices" },
-            { name: "About", href: "/about" },
-            { name: "Blog", href: "/blog" },
-            { name: "Contact", href: "/contact" },
+        
+            { name: "pricing", href: "/pricing" },
+          
             
           ].map((link) => (
             <Link

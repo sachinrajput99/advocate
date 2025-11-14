@@ -135,7 +135,7 @@ export default function RightsMatterSection() {
   transition={{ duration: 0.4, ease: "easeIn" }}
   className="bg-[#213753]  text-white px-6 py-3 rounded-full font-medium hover:bg-[#1b2f4d] transition inline-block"
 >
-  Get A Free Consultation
+  Get A  Consultation
 </motion.a>
 </div>
 

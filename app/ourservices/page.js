@@ -18,6 +18,71 @@ const staggerParent = {
 };
 
 const Page = () => {
+
+ const service=[
+  {
+    title: "Criminal Matters",
+    desc: "Bail, anticipatory bail, quashing, criminal appeals, and complete criminal litigation support.",
+    icon: "⚖️",
+    img: "/document.avif",
+  },
+  {
+    title: "Civil Matters",
+    desc: "Property disputes, injunctions, recovery suits, and all types of civil litigation.",
+    icon: "📜",
+    img: "civillaw.jpeg",
+  },
+  {
+    title: "Matrimonial Matters",
+    desc: "Divorce, alimony, domestic violence, judicial separation, and family dispute resolution.",
+    icon: "💍",
+    img: "/family-law.avif",
+  },
+  {
+    title: "Commercial Matters",
+    desc: "Business disputes, breach of contract, partnership issues and commercial litigation.",
+    icon: "📈",
+    img: "/business-formation.avif",
+  },
+  {
+    title: "Customer Matters",
+    desc: "Consumer court cases related to defective services, products, fraud and unfair practices.",
+    icon: "🛍️",
+    img: "consumerlaw.jpeg",
+  },
+  {
+    title: "Arbitration Services",
+    desc: "Arbitration petitions, settlement drafting, and representation in arbitration proceedings.",
+    icon: "📝",
+    img:" /artribationlaw.jpeg",
+  },
+  {
+    title: "Property Registration",
+    desc: "Property sale deed, gift deed, registry assistance, documentation and verification.",
+    icon: "🏠",
+    img: "/property-deals.avif",
+  },
+  {
+    title: "Legal Notices",
+    desc: "Drafting and sending legal notices for civil, criminal, matrimonial, and business disputes.",
+    icon: "📨",
+    img: "/consultation.avif",
+  },
+  {
+    title: "Court Marriage",
+    desc: "Assistance with court marriage procedure, documentation, and legal compliance.",
+    icon: "💒",
+    img: "courtmarriagelaw.png",
+  },
+  {
+    title: "Marriage Registration",
+    desc: "Marriage registration guidance, documentation, verification, and certificate issuance.",
+    icon: "📑",
+    img: "marriageregistrationlaw.jpeg",
+  },
+]
+
+
   return (
     <main className="w-full">
       <Navbar/>
@@ -68,44 +133,7 @@ const Page = () => {
         variants={staggerParent}
         className="w-full max-w-7xl  pt-16 mx-auto px-4 sm:px-6  sm:py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10"
       >
-        {[
-          {
-            title: "Personal injury",
-            desc: "Outstanding legal services with unparalleled expertise and a truly tailored approach.",
-            icon: "🩺",
-            img: "/personal-injury.avif",
-          },
-          {
-            title: "Family law advocacy",
-            desc: "We support your family law needs with care, professionalism, fairness and harmony.",
-            icon: "👨‍👩‍👦",
-            img: "/family-law.avif",
-          },
-          {
-            title: "Property deals",
-            desc: "Smooth & secure property deals — from detailed contracts to hassle-free closings.",
-            icon: "🏠",
-            img: "/property-deals.avif",
-          },
-          {
-            title: "Business formation",
-            desc: "Expert support from structure selection to compliance for confident business launch.",
-            icon: "👥",
-            img: "/business-formation.avif",
-          },
-          {
-            title: "Criminal defense",
-            desc: "Strategic defense ensuring your rights are protected and best outcome is achieved.",
-            icon: "⚖️",
-            img: "/document.avif",
-          },
-          {
-            title: "Estate probate",
-            desc: "Securely protect your legacy, minimize taxes, and simplify probate for smooth transfer.",
-            icon: "📋",
-            img: "/consultation.avif",
-          },
-        ].map((card, index) => (
+        {service.map((card, index) => (
           <motion.div
             key={index}
             variants={fadeUp}
@@ -135,26 +163,13 @@ const Page = () => {
                 {card.desc}
               </p>
 
-              <a href="#" className="text-xs sm:text-sm underline mt-3 inline-block">
-                Learn more
-              </a>
+          
             </div>
           </motion.div>
         ))}
       </motion.section>
 
-      {/* ===========================
-          FOOTER SECTION
-      ============================ */}
-      <section className="w-full bg-[#f5f7fa] py-12 sm:py-16 text-center">
-        <h2 className="text-xl sm:text-2xl font-semibold text-[#1c2e46]">Find us</h2>
-
-        <div className="mt-4 text-gray-700 space-y-1 text-sm sm:text-base">
-          <p>14 Tottenham Road, London, England</p>
-          <p>information@office.com</p>
-          <p>(704) 358-1528</p>
-        </div>
-      </section>
+    
       <Footer/>
 
     </main>
