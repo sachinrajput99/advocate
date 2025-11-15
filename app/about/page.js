@@ -46,7 +46,7 @@ const Page = () => {
         className="relative h-[20vh] w-full mt-12 sm:mt-20"
       >
         <img
-          src="/about-hero.avif"
+          src="/about-hero.jpg"
           alt="About Banner"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -78,7 +78,7 @@ const Page = () => {
         {/* Left Image */}
         <motion.div variants={fadeUp}>
           <motion.img
-            src="/law-meeting.avif"
+              src="/about-hero.png"
             alt="Law Consultation"
             className="rounded-xl w-full object-cover"
             initial={{ scale: 1.05, opacity: 0 }}
@@ -121,9 +121,9 @@ const Page = () => {
         whileInView="show"
         viewport={{ once: true }}
         variants={staggerParent}
-        className="w-full py-20 px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white"
+className="w-full  py-20  px-6   md:px-16  grid grid-cols-1 md:grid-cols-[50%_50%]  gap-16  items-center   bg-white"
       >
-        {/* Left Content */}
+        {/* Left Content
         <motion.div variants={fadeUp}>
           <h3 className="text-3xl text-[#213753] mb-4">
             We handle a wide range of legal matters
@@ -143,12 +143,55 @@ const Page = () => {
               <p className="text-gray-600">Clients worldwide</p>
             </motion.div>
           </motion.div>
-        </motion.div>
+        </motion.div> */}
+        {/* Left Content */}
+<motion.div variants={fadeUp}>
+  <h3 className="text-3xl text-[#213753] mb-4">
+    We handle a wide range of legal matters
+  </h3>
+
+  <p className="text-gray-600 leading-relaxed mb-6">
+    At <span className="font-semibold text-[#213753]">Saini & Associates</span>, 
+    our philosophy is straightforward — clients always come first. We believe that 
+    genuine legal representation is more than just winning cases; it is about 
+    safeguarding rights, preserving dignity, and empowering clients to make 
+    informed and confident decisions.
+  </p>
+
+  <p className="text-gray-600 leading-relaxed mb-6">
+    Our work ethic is rooted in four core principles:
+    <br />• <strong>Integrity</strong> — Upholding the highest standards of ethics and professionalism.
+    <br />• <strong>Accountability</strong> — Taking full responsibility and delivering on every commitment.
+    <br />• <strong>Transparency</strong> — Providing clear, honest, and consistent communication throughout the legal process.
+    <br />• <strong>Excellence</strong> — Pursuing the strongest outcomes with dedication and thorough preparation.
+  </p>
+
+  <motion.div variants={staggerParent} className="flex gap-12 mb-6">
+    <motion.div variants={fadeUp}>
+      <h4 className="text-3xl font-bold text-[#213753]">5+</h4>
+      <p className="text-gray-600">Years of experience</p>
+    </motion.div>
+
+    <motion.div variants={fadeUp}>
+      <h4 className="text-3xl font-bold text-[#213753]">20k</h4>
+      <p className="text-gray-600">Clients worldwide</p>
+    </motion.div>
+  </motion.div>
+
+
+  <p className="text-gray-600 leading-relaxed mb-10">
+    We aim to be more than just legal representatives — we act as strategic partners, 
+    offering insight, foresight, and unwavering commitment to our clients’ success.
+  </p>
+
+</motion.div>
+
 
         {/* Right Image */}
         <motion.div variants={fadeUp}>
           <motion.img
-            src="/legal-docs.avif"
+            // src="/legal-docs.avif"
+                  src="/supremecourt.jpg"
             alt="Documents"
             className="rounded-xl w-full object-cover"
             initial={{ opacity: 0, scale: 1.07 }}
@@ -260,7 +303,7 @@ const Page = () => {
         {/* Right Image */}
         <motion.div variants={fadeUp}>
           <motion.img
-            src="/trust-section.avif"
+            src="/justice.jpg"
             alt="Attorney Meeting"
             className="rounded-xl w-full object-cover"
             initial={{ opacity: 0, scale: 1.07 }}

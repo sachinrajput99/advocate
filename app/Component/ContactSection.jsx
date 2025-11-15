@@ -21,7 +21,7 @@ const ContactSection = () => {
           transition={{ duration: 0.9, ease: "easeOut" }}
         >
           <img
-            src="/contact-image.avif"
+            src="/contact-image.jpg"
             alt="Legal Consultation"
             className="w-full h-full object-cover object-[5%_50%]"
           />

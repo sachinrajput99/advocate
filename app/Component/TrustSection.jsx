@@ -17,11 +17,17 @@ export default function TrustSection() {
         <img
           src="/divya-trust.jpeg"
           alt="Lawyers discussing"
-          className="w-full h-full object-cover
+          className=" sm:block hidden w-full h-full object-cover
          
           "
         />
-
+<img
+              src="/about-hero.png"
+          alt="Lawyers discussing"
+          className=" sm:hidden block  w-full h-full object-cover
+         
+          "
+        />
         {/* 🔹 Dark Overlay */}
         <div className="absolute inset-0 bg-black/50"></div>
       </motion.div>

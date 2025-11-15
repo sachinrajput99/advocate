@@ -88,15 +88,15 @@ const AboutUsSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <img
-            src="/about-us.avif"
+            src="/justice.jpg"
             alt="Consultation"
-            className="w-full h-[500px] md:h-[600px] object-cover md:translate-y-16"
+            className="w-full sm:h-[500px] h-[300px] md:h-[600px] object-cover md:translate-y-16"
           />
         </motion.div>
       </div>
 
       {/* -------- Bottom Q&A Section -------- */}
-      <div className="bg-[#dce9f9] px-6 md:px-16 pt-64 pb-16 grid grid-cols-1 md:grid-cols-2 gap-8 relative z-0 -mt-20">
+      <div className="bg-[#dce9f9] px-6 md:px-16 pt-32 sm:pt-64 pb-16 grid grid-cols-1 md:grid-cols-2 gap-8 relative z-0 -mt-20">
         
         {/* Left Column */}
         <motion.div
