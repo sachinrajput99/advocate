@@ -4,62 +4,49 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-  
-//   <section
-//   className="
-//   sm:mt-16
-//     relative 
-//     min-h-screen 
-//     flex flex-col 
+    <section
+      className="
+        sm:mt-16
+        relative 
+        min-h-screen 
+        flex flex-col 
+        justify-start             /* mobile = top aligned */
+        pt-32                     /* mobile padding */
+        sm:justify-center         /* desktop center */
+        sm:pt-0                   /* desktop remove padding */
+        text-white 
 
-//     justify-start        /* mobile = top aligned */
-//     pt-32              /* mobile = padding for spacing */
+        /* Desktop / Tablet background */
+        sm:bg-[url('/divya-hero.jpg')]
+        sm:bg-cover 
+        sm:bg-center
+        sm:bg-no-repeat
 
-//     sm:justify-center    /* tablet + desktop = centered */
-//     sm:pt-0              /* remove padding on larger screens */
-
-//     text-white 
-//     bg-[url('/divya-hero.jpg')] 
-   
-//     sm:bg-cover 
-//    sm: bg-center
-//         bg-[length:auto_100%]   /* height full, width auto */
-//     bg-[position:calc(100%_-_-160px)_center] /* start 400px from right */
-//   "
-// >
-<section
-  className="
-    sm:mt-16
-    relative 
-    min-h-screen 
-    flex flex-col 
-    justify-start        /* mobile = top aligned */
-    pt-32                /* mobile = padding for spacing */
-    sm:justify-center    /* tablet + desktop = centered */
-    sm:pt-0              /* remove padding on larger screens */
-    text-white 
-
-    /* Desktop / Tablet background */
-    sm:bg-[url('/divya-hero.jpg')]
-    sm:bg-cover 
-    sm:bg-center
-    sm:bg-no-repeat
-
-    /* Mobile background */
-    bg-[url('/divya-hero.jpg')]
-    bg-[length:auto_100%]           /* height full, width auto */
-    bg-[position:calc(100%_-_-140px)_center] /* start 160px from right on mobile */
-    bg-no-repeat
-  "
->
-   {/* // bg-[url('/lawyer-bg.avif')]  */}
-
-      {/* Dark overlay */}
+        /* Mobile background */
+        bg-[url('/divya-hero.jpg')]
+        bg-[length:auto_100%]
+        bg-[position:calc(100%_-_-140px)_center]
+        bg-no-repeat
+      "
+    >
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/50"></div>
 
       {/* Content */}
-      <div className="relative z-10  container mx-auto px-4 md:px-16 max-w-6xl">
+      <div
+        className="
+          relative z-10  
+          container mx-auto px-4 md:px-16 max-w-6xl
 
+          flex flex-col
+          items-center text-start       /* ⭐ Mobile center align */
+          sm:items-start sm:text-left    /* ⭐ Desktop left align */
+
+          pb-20                          /* ⭐ Buttons upar mobile */
+          mt-[92px]
+          sm:mt-0
+        "
+      >
         {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
@@ -83,7 +70,7 @@ export default function HeroSection() {
 
         {/* Buttons */}
         <motion.div
-          className="flex flex-wrap gap-3 sm:gap-4"
+          className="flex flex-wrap gap-3 sm:gap-4 justify-center sm:justify-start"
           initial="hidden"
           animate="visible"
           variants={{
@@ -93,7 +80,7 @@ export default function HeroSection() {
         >
           {/* Button 1 */}
           <motion.a
-          href="/contact"
+            href="/contact"
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.8 },
               visible: { opacity: 1, y: 0, scale: 1 },
@@ -107,7 +94,7 @@ export default function HeroSection() {
 
           {/* Button 2 */}
           <motion.a
-           href="#specialized"
+            href="#specialized"
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.8 },
               visible: { opacity: 1, y: 0, scale: 1 },
@@ -136,10 +123,10 @@ export default function HeroSection() {
           }}
         >
           {[
-        { number: "5+", label: "Years of Experience" },
-  { number: "20k", label: "Clients Served" },
- { number: "10+", label: "Specialized Legal Fields" },
-  { number: "24/7", label: "Legal Assistance" }
+            { number: "5+", label: "Years of Experience" },
+            { number: "20k", label: "Clients Served" },
+            { number: "10+", label: "Specialized Legal Fields" },
+            { number: "24/7", label: "Legal Assistance" },
           ].map((item, i) => (
             <motion.div
               key={i}
@@ -171,7 +158,6 @@ export default function HeroSection() {
           ))}
         </motion.div>
       </div>
-
     </section>
   );
 }
