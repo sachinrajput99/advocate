@@ -74,17 +74,13 @@ export default function Footer() {
             </motion.div>
           </div>
 
-          <div className="text-right">
-            <p className="text-lg md:text-xl text-gray-200 font-medium">
-              For emergency legal support, contact us on WhatsApp.
-            </p>
-          </div>
+        
         </motion.div>
          <motion.div
           variants={parentVariants}
           className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-10"
         >
-        <div>
+        <div className="sm:block hidden" >
              <Link href="/" className="flex items-center gap-2 mb-4">
           <Scale className="w-6 h-6 text-[#324563]" />
           <h1 className="font-serif text-lg text-white ">Saini & Associates</h1>
@@ -120,7 +116,20 @@ Professional lawyer specialising in Criminal Matters, Civil Matters and  Matrimo
             </motion.div>
           ))}
         </motion.div>
-
+<div className="sm:hidden block mb-5" >
+             <Link href="/" className="flex items-center gap-2 mb-4">
+          <Scale className="w-6 h-6 text-[#324563]" />
+          <h1 className="font-serif text-lg text-white ">Saini & Associates</h1>
+        </Link>
+                    <p
+               
+                   
+                    className="text-sm text-gray-300 hover:text-white"
+                  >
+Professional lawyer specialising in Criminal Matters, Civil Matters and  Matrimonial Matters.
+                  </p>
+      
+         </div>
         {/* --- Bottom Section --- */}
         <motion.div
           variants={childVariants}

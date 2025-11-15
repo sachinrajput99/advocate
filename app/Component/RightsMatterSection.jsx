@@ -31,7 +31,7 @@ export default function RightsMatterSection() {
   ];
 
   return (
-    <section className="bg-white py-12 sm:py-20">
+    <section className="bg-white py-12 sm:py-20 overflow-x-hidden">
       <div className="container mx-auto px-6 md:px-12 max-w-7xl grid md:grid-cols-2 gap-12 items-center">
 
         {/* Left Column - Animated Cards */}
@@ -121,24 +121,23 @@ export default function RightsMatterSection() {
             representation you deserve. Our comprehensive expertise allows us to
             handle a wide range of legal matters effectively.
           </motion.p>
-<div className="text-center sm:text-left">
 
-         <motion.a
-  href="/contact"
-  initial={{ opacity: 0, scale: 0.9 }}
-  animate={{ opacity: 1, scale: 1 }}
-  whileHover={{
-    scale: 1.07,
-    transition: { type: "spring", stiffness: 300, damping: 15 }
-  }}
-  whileTap={{ scale: 0.95 }}
-  transition={{ duration: 0.4, ease: "easeIn" }}
-  className="bg-[#213753]  text-white px-6 py-3 rounded-full font-medium hover:bg-[#1b2f4d] transition inline-block"
->
-  Get   Consultation
-</motion.a>
-</div>
-
+          <div className="text-center sm:text-left">
+            <motion.a
+              href="/contact"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              whileHover={{
+                scale: 1.07,
+                transition: { type: "spring", stiffness: 300, damping: 15 },
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.4, ease: "easeIn" }}
+              className="bg-[#213753] text-white px-6 py-3 rounded-full font-medium hover:bg-[#1b2f4d] transition inline-block"
+            >
+              Get Consultation
+            </motion.a>
+          </div>
         </motion.div>
       </div>
     </section>

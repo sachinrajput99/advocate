@@ -94,7 +94,7 @@ const Page = () => {
 
   {/* Curved Background */}
   <div
-    className="
+    className=" mt-16 sm:mt-0 
       absolute top-0 left-0 w-full
       h-[380px]          /* mobile height fix */
       xs:h-[280px]
@@ -108,7 +108,7 @@ const Page = () => {
   ></div>
 
   {/* Content */}
-  <div className="relative z-10 px-4 sm:px-6 max-w-xl sm:max-w-2xl md:max-w-3xl">
+  <div className="relative z-10 px-4 sm:px-6 max-w-xl mt-16 sm:mt-0 sm:max-w-2xl md:max-w-3xl">
     
     <h1 className="text-3xl xs:text-xl sm:text-5xl ">
       Services

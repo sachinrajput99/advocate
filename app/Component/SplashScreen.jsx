@@ -41,6 +41,14 @@ export default function SplashScreen({ onFinish }) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       />
+       <motion.div
+        className="absolute sm:hidden inset-0 bg-cover  bg-center 
+        "
+        style={{ backgroundImage: "url('/about-hero.png')" }}
+        initial={{ opacity: 0, scale: 1.2 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+      />
 {/* ⭐ MOBILE VERSION (Perfect Center + Vertical Gap) */}
 <div className="absolute inset-0 z-10 text-white flex flex-col justify-center items-center sm:hidden space-y-4">
   {mobileLines.map((line, lineIndex) => (
@@ -55,7 +63,7 @@ export default function SplashScreen({ onFinish }) {
           variants={letterVariant}
           initial="hidden"
           animate="show"
-          className="text-5xl font-bold font-[cursive]"
+          className="text-5xl font-bold mt-24 font-[cursive]"
         >
           {char}
         </motion.span>

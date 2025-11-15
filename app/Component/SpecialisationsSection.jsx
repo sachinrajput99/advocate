@@ -134,7 +134,7 @@ export default function SpecialisationsSection() {
             transition={{ type: "spring", stiffness: 250, damping: 15 }}
             className="flex items-center bg-[#324563] text-white px-6 py-3 rounded-full font-medium hover:bg-[#213753] transition"
           >
-            See all specialisations
+            See all specialization
             <ArrowUpRight className="ml-2 w-4 h-4" />
           </motion.a>
         </div>
