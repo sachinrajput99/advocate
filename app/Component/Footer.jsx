@@ -21,8 +21,8 @@ const footerData = [
     title: "About Us",
     links: [
       { name: "History", url: "/about" },
-      { name: "Services", url: "/ourservice" },
-      { name: "Expertise", url: "/ourservice" },
+      { name: "Services", url: "/ourservices" },
+      { name: "Expertise", url: "/ourservices" },
     ],
   },
 
@@ -142,7 +142,7 @@ Professional lawyer specialising in Criminal Matters, Civil Matters and  Matrimo
               <FaInstagram size={20} />
             </motion.a>
 
-            <motion.a href="#" whileHover={{ scale: 1.2 }}>
+            <motion.a href="https://www.facebook.com/share/1FU8yBmyUK/?mibextid=wwXIfr" whileHover={{ scale: 1.2 }}>
               <FaFacebookF size={20} />
             </motion.a>
 

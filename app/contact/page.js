@@ -16,6 +16,8 @@ export default function Page() {
     message: "",
   });
 
+  const [status, setStatus] = useState(null); // success | error | loading
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -23,30 +25,31 @@ export default function Page() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    emailjs
-      .send(
-        "YOUR_SERVICE_ID",    // ⭐ Replace
-        "YOUR_TEMPLATE_ID",   // ⭐ Replace
-        form,                 // Yeh data EmailJS template me jayega
-        "YOUR_PUBLIC_KEY"     // ⭐ Replace
-      )
-      .then(
-        () => {
-          alert("Request sent successfully!");
+    setStatus("loading"); // button "Sending..."
 
-          setForm({
-            name: "",
-            email: "",
-            contact: "",
-            service: "",
-            message: "",
-          });
-        },
-        (error) => {
-          console.log(error);
-          alert("Failed to send request, please try again.");
-        }
-      );
+    emailjs.send(
+  process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+  process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+  form,
+  process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+)
+      .then(() => {
+        setStatus("success");
+
+        setForm({
+          name: "",
+          email: "",
+          contact: "",
+          service: "",
+          message: "",
+        });
+
+        setTimeout(() => setStatus(null), 4000);
+      })
+      .catch(() => {
+        setStatus("error");
+        setTimeout(() => setStatus(null), 4000);
+      });
   };
 
   const fadeUp = {
@@ -55,9 +58,7 @@ export default function Page() {
   };
 
   const stagger = {
-    show: {
-      transition: { staggerChildren: 0.15 },
-    },
+    show: { transition: { staggerChildren: 0.15 } },
   };
 
   return (
@@ -66,7 +67,6 @@ export default function Page() {
 
       <div className="bg-gray-50 mt-24">
         <section className="max-w-6xl mx-auto px-8 py-20 grid md:grid-cols-2 gap-12">
-
           {/* LEFT SECTION */}
           <motion.div
             variants={fadeUp}
@@ -87,7 +87,8 @@ export default function Page() {
               <div className="flex items-center gap-3">
                 <span className="text-2xl">📍</span>
                 <p className="text-gray-800">
-                  We proudly serve clients in Delhi, Haryana & Punjab High Courts.
+                  We proudly serve clients in Delhi, Haryana & Punjab High
+                  Courts.
                 </p>
               </div>
 
@@ -146,16 +147,20 @@ export default function Page() {
                 required
               >
                 <option value="">Choose service*</option>
-                <option value="criminal">Criminal Matters</option>
-                <option value="civil">Civil Matters</option>
-                <option value="matrimonial">Matrimonial Matters</option>
-                <option value="commercial">Commercial Matters</option>
-                <option value="consumer">Consumer Matters</option>
-                <option value="arbitration">Arbitration Services</option>
-                <option value="property">Property Registration</option>
-                <option value="legal-notice">Legal Notices</option>
-                <option value="court-marriage">Court Marriage</option>
-                <option value="marriage-registration">Marriage Registration</option>
+                <option value="Criminal Matters">Criminal Matters</option>
+                <option value="Civil Matters">Civil Matters</option>
+                <option value="Matrimonial Matters">Matrimonial Matters</option>
+                <option value="Commercial Matters">Commercial Matters</option>
+                <option value="Consumer Matters">Consumer Matters</option>
+                <option value="Arbitration Services">Arbitration Services</option>
+                <option value="Property Registration">
+                  Property Registration
+                </option>
+                <option value="Legal Notices">Legal Notices</option>
+                <option value="Court Marriage">Court Marriage</option>
+                <option value="Marriage Registration">
+                  Marriage Registration
+                </option>
               </select>
             </motion.div>
 
@@ -167,20 +172,34 @@ export default function Page() {
               onChange={handleChange}
               className="w-full p-4 rounded-md bg-gray-100 outline-none focus:ring-2 focus:ring-blue-400"
               rows="5"
+              required
             ></motion.textarea>
 
             <motion.button
               type="submit"
+              disabled={status === "loading"}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.94 }}
-              className="bg-slate-900 w-full text-white px-6 py-4 text-lg rounded-md shadow-md"
+              className="bg-slate-900 w-full text-white px-6 py-4 text-lg rounded-md shadow-md disabled:opacity-70"
             >
-              Submit Request
+              {status === "loading" ? "Sending..." : "Submit Request"}
             </motion.button>
 
+            {/* SUCCESS & ERROR MESSAGES */}
+            {status === "success" && (
+              <p className="text-green-600 text-center">
+                Message sent successfully!
+              </p>
+            )}
+
+            {status === "error" && (
+              <p className="text-red-600 text-center">
+                Failed to send message. Please try again.
+              </p>
+            )}
           </motion.form>
         </section>
       </div>

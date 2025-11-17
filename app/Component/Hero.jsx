@@ -44,7 +44,7 @@ export default function HeroSection() {
 
           pb-20                          /* ⭐ Buttons upar mobile */
           mt-[92px]
-          sm:mt-0
+        
         "
       >
         {/* Heading */}

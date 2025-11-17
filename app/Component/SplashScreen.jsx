@@ -31,8 +31,9 @@ export default function SplashScreen({ onFinish }) {
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      style={{ fontFamily: "Stack Sans Text" }} // ⭐ apply font globally to the component
     >
-      {/* BG IMAGE */}
+      {/* DESKTOP BACKGROUND */}
       <motion.div
         className="absolute inset-0 bg-cover bg-right sm:bg-center bg-[length:auto_100%]
         bg-[position:calc(100%_-_-130px)_center]"
@@ -41,39 +42,40 @@ export default function SplashScreen({ onFinish }) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       />
-       <motion.div
-        className="absolute sm:hidden inset-0 bg-cover  bg-center 
-        "
+
+      {/* MOBILE BACKGROUND */}
+      <motion.div
+        className="absolute sm:hidden inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/about-hero.png')" }}
         initial={{ opacity: 0, scale: 1.2 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       />
-{/* ⭐ MOBILE VERSION (Perfect Center + Vertical Gap) */}
-<div className="absolute inset-0 z-10 text-white flex flex-col justify-center items-center sm:hidden space-y-4">
-  {mobileLines.map((line, lineIndex) => (
-    <div
-      key={lineIndex}
-      className="flex gap-[0.25em] tracking-[0.25em] justify-center"
-    >
-      {line.split("").map((char, i) => (
-        <motion.span
-          key={i}
-          custom={i}
-          variants={letterVariant}
-          initial="hidden"
-          animate="show"
-          className="text-5xl font-bold mt-24 font-[cursive]"
-        >
-          {char}
-        </motion.span>
-      ))}
-    </div>
-  ))}
-</div>
 
+      {/* ⭐ MOBILE VERSION (Perfect Center + Vertical Gap) */}
+      <div className="absolute inset-0 z-10 text-white flex flex-col justify-center items-center sm:hidden space-y-5">
+        {mobileLines.map((line, lineIndex) => (
+          <div
+            key={lineIndex}
+            className="flex gap-[0.25em] tracking-[0.25em] justify-center mt-28"
+          >
+            {line.split("").map((char, i) => (
+              <motion.span
+                key={i}
+                custom={i}
+                variants={letterVariant}
+                initial="hidden"
+                animate="show"
+                className="text-5xl font-medium  text-white font-[Stack Sans Text]"
+              >
+                {char}
+              </motion.span>
+            ))}
+          </div>
+        ))}
+      </div>
 
-      {/* ⭐ DESKTOP VERSION (Original, unchanged) */}
+      {/* ⭐ DESKTOP VERSION */}
       <div className="relative z-10 gap-[0.25em] tracking-[0.25em] text-white hidden sm:flex mt-0">
         {fullText.split("").map((char, i) => (
           <motion.span
@@ -82,7 +84,7 @@ export default function SplashScreen({ onFinish }) {
             variants={letterVariant}
             initial="hidden"
             animate="show"
-            className="text-7xl font-bold font-[cursive]"
+            className="text-7xl font-medium font-[Stack Sans Text]"
           >
             {char === " " ? "\u00A0" : char}
           </motion.span>

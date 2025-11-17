@@ -55,6 +55,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+       <link
+          href="https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@400;500&display=swap"
+          rel="stylesheet"
+        />
         {/* ✅ Favicon */}
         {/* <link rel="icon" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/favicon.png" /> */}
